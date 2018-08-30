@@ -1,0 +1,17 @@
+Lifecycle Methods:
+1.	constructor()
+2.	componentDidMount()
+3.	componentWillMount()
+4.	render()
+5.	componentWillReceiveProps()
+6.	shouldComponentUpdate()
+7.	componentWillUpdate()
+8.	componentDidUpdate()
+9.	componentDidCatch()
+10.	componentWillUnmount()
+
+LIFECYCLE METHODS WORKS ONLY IN STATEFULL COMPONENT AND NOT STATELESS ONES.
+
+Not all these methods get executed while component creation. Only the first four does.
+
+Constructor -> componentWillMount() -> render() : will render the child components -> componentDidMount()
