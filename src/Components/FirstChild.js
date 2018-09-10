@@ -20,14 +20,16 @@ class FirstChild extends React.Component{
         console.log('FirstChild: componentDidMount')
     }
 
-    componentWillReceiveProps(){
+    componentWillReceiveProps(nextProps){
         console.log('First Child: componentWillReceiveProps')
+        console.log(nextProps)
     }
 
     render(){
         console.log('FirstChild: render')
         return(
             <div>
+                <p>FirstChild: {this.props.name}</p>
                 <SecondChild text = {this.state.text}/>
             </div>
         )

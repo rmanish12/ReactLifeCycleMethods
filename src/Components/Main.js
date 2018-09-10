@@ -8,7 +8,7 @@ class Main extends React.Component{
         console.log('Main: constructor')
 
         this.state = {
-            name: ''
+            name: 'abc'
         }
 
         this.onChangeHandler = this.onChangeHandler.bind(this)
@@ -28,18 +28,34 @@ class Main extends React.Component{
 
     componentDidMount(){
         console.log('Main: componentDidMount')
+        // this.setState({
+        //     name: 'abcd'
+        // })
     }
 
-    componentWillUpdate(){
+    componentWillUpdate(nextProps, nextState){
         console.log('Main: componentWillUpdate')
+        console.log(nextProps)
+        console.log(nextState)
     }
 
     componentDidUpdate(){
         console.log('Main: componentDidUpdate')
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        console.log('Main: shouldComponentUpdate')
+        console.log(nextProps)
+        console.log(nextState)
+
+        // if(nextState.name === 'Test'){
+        //     return false
+        // }
+        return true
+    }
+
     render(){
-        console.log('Main: render')
+        console.log('Main: render ' + this.state.name)
         return(
             <div>
                 <button onClick = {this.onChangeHandler}>Change State of Main Component</button>

@@ -1,12 +1,12 @@
 Lifecycle Methods:
-1.	constructor()
-2.	componentDidMount()
-3.	componentWillMount()
-4.	render()
-5.	componentWillReceiveProps()
-6.	shouldComponentUpdate()
-7.	componentWillUpdate()
-8.	componentDidUpdate()
+1.	constructor()                   -> done
+2.	componentDidMount()             -> done
+3.	componentWillMount()            -> done
+4.	render()                        -> done
+5.	componentWillReceiveProps()     -> done
+6.	shouldComponentUpdate()         -> done
+7.	componentWillUpdate()           -> done
+8.	componentDidUpdate()            -> done
 9.	componentDidCatch()
 10.	componentWillUnmount()
 
@@ -14,4 +14,17 @@ LIFECYCLE METHODS WORKS ONLY IN STATEFULL COMPONENT AND NOT STATELESS ONES.
 
 Not all these methods get executed while component creation. Only the first four does.
 
-Constructor -> componentWillMount() -> render() : will render the child components -> componentDidMount()
+During Mounting:
+constructor() -> componentWillMount() -> render() : will render the child components -> componentDidMount()
+
+During updating: (which can happen with the change of state or props)
+shouldComponentUpdate() (if it returns true...then) -> componentWillUpdate() -> render() : will render all child components
+-> child's componentWillReceiveProps() -> componentDidUpdate()
+
+During unmounting:
+componentWillMount()
+
+During error:
+componentDidCatch()
+
+**componentWillReceiveProps() doesn't get called during the mounting phase
